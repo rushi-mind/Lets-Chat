@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Chat</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #main2 {
+            display: flex;
+            flex-direction: row;
+            background: #000;
+            height: 100vh;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20%;
+        }
+
+        #main2-div1 {
+            width: 25%;
+            height: 80vh;
+            overflow: auto;
+            color: white;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .online-users {
+            margin: 5px auto;
+        }
+
+        #main2-div2 {
+            display: flex;
+            flex-direction: column;
+            background: #000;
+            height: 100vh;
+            width: 75%;
+            align-items: center;
+            justify-content: center;
+            padding: 2% 5%;
+        }
+
+        #messages-box {
+            height: 90%;
+            width: 100%;
+            border: 2px solid #fff;
+            border-radius: 40px;
+            padding: 2%;
+            overflow: auto;
+            background-color: #1b1c1a;
+        }
+
+        #type-message {
+            color: #fff;
+            padding: 12px;
+            display: flex;
+            width: 100%;
+            margin: 20px;
+            border: 2px solid #fff;
+            border-radius: 20PX;
+            height: 10%;
+        }
+
+        #message-text-div {
+            width: 80%;
+            display: flex;
+            align-items: center;
+        }
+
+        #send-button-div {
+            width: 20%;
+            height: 100%;
+            align-self: flex-end;
+        }
+
+        #send-button {
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #1b1c1a;
+            color: cornsilk;
+            border-radius: 8px;
+        }
+
+
+        .message {
+            color: #fff;
+            max-width: 44%;
+            margin: 2%;
+            background-color: rgb(82, 81, 81);
+            padding: 4px;
+            border: 1px solid lemonchiffon;
+            border-radius: 5px;
+            clear: both;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .center {
+            margin: auto;
+            margin-top: 1%;
+            max-width: fit-content;
+            background-color: rgb(247, 183, 183);
+            font-size: 14px;
+            color: rgb(35, 51, 82);
+        }
+
+        .online-users {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body id="body" style="margin: 0; padding: 0;">
+
+    <!-- Front Page - Signup & Login -->
+    <div id="main" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100%; background: #000; color: #fff; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+        <div class="signup" style="border: 4px solid #fff; border-radius: 10%; padding: 30px; margin: 30px;">
+            <h1>Create Your Account</h1>
+            Enter Name: <input type="text" name="name" id="name"><br><br>
+            Create 4 digit PIN: <input type="number" name="PIN" id="PIN-Signup"><br><br>
+            <input type="button" value="Signup" id="signup-button">
+            <h3 id="response-signup"></h3>
+        </div>
+        <div class="login"
+            style="border: 4px solid #fff; border-radius: 10%; padding: 30px; margin: 30px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            <h1>Login from here</h1>
+            Enter your ID: <input type="number" name="id" id="id"><br><br>
+            Enter PIN: <input type="number" name="PIN" id="PIN-Login"><br><br>
+            <input type="button" value="Login" id="login-button">
+            <h3 id="response-login"></h3>
+        </div>
+    </div>
+
+    <!-- Logged in Page -->
+    <div id="main2">
+        <div id="main2-div1"></div>
+        <div id="main2-div2">
+            <div style="color: white; font-size: large; margin: 5px;" id="current-chat"></div>
+            <div id="messages-box">
+                <button style="float: right;" id="logout-button">Logout</button>
+                <div class="message center">You joined the chat</div>
+            </div>
+            <div id="type-message">
+                <div id="message-text-div">
+                    <p id="message-text" contenteditable="true">Enter your message here</p>
+                </div>
+                <div id="send-button-div">
+                    <button id="send-button">SEND</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- <script src="./script-socketio.js" type="module"></script> -->
+<script src="./script-mqtt.js" type="module"></script>
+
+</html>
