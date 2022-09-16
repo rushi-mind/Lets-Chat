@@ -21,7 +21,12 @@ app.use(cors());
 app.use(bp.json());
 app.use('/', route);
 
-app.listen(3000, () => {
+if(!process.env.PORT) {
+    console.error('FATAL ERROR: env is not setup');
+    process.exit(1);
+}
+
+app.listen(process.env.PORT, () => {
     console.log('running...');
 });
 
