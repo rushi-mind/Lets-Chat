@@ -20,10 +20,14 @@
     ```
     npm install
     ```
-6. Start the Node Server on your defined port by running following command 
-        ```
-        npm run dev
-        ```
+6. Run migrations to create tables in database. Run following command:
+    ```
+    npx sequelize-cli db:migrate
+    ```
+6. Start the Node Server on your defined port by running following command: 
+    ```
+    npm run dev
+    ```
 7. In Frontend directory create ***config.js*** and setup configs as shown in ***sample.config.js***.
     * Set HTTP_URL as your Node server host and port:
         ```
