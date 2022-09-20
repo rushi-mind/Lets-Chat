@@ -64,6 +64,7 @@ const displayChat = () => {
         newChild.innerText = `${current.user.id === user.id ? 'YOU' : current.user.name}: ${current.message}`;
         messageBox.appendChild(newChild);
     });
+    messageBox.scrollTo(0, messageBox.scrollHeight);
 }
 
 const onJoinChat = () => {
@@ -102,8 +103,8 @@ const onJoinChat = () => {
                 if(!chat) chat = [];
                 chat.push(payload);
                 localStorage.setItem('chat-group', JSON.stringify(chat));
-                document.getElementById('group-message').style.color = 'yellow';
                 if(currentTopic === 'group-message') displayChat();
+                else document.getElementById('group-message').style.color = 'yellow';
                 break;
 
             case 'user-left':
@@ -122,8 +123,8 @@ const onJoinChat = () => {
                 if(!privateChat) privateChat = [];
                 privateChat.push(payload);
                 localStorage.setItem(`chat-${payload.user.id}`, JSON.stringify(privateChat));
-                document.getElementById(payload.user.id).style.color = 'yellow';
                 if(currentTopic == payload.user.id) displayChat();
+                else document.getElementById(payload.user.id).style.color = 'yellow';
                 break;
 
             default:
